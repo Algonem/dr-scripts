@@ -82,11 +82,10 @@ class Astrology
     end
     result.compact.select { |data| data['circle'] <= DRStats.circle }
   end
-
   def check_attunement
     return if DRSkill.getxp('Attunement') > 30
 
-    ['', 'mana', 'moons', 'planets'].each do |target|
+    ['', 'mana', 'moons', 'planets', 'psychic', 'transduction', 'perception', 'moonlight' ].each do |target|
       DRC.bput("perceive #{target}", 'roundtime')
       waitrt?
     end
